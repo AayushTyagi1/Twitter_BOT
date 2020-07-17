@@ -2,15 +2,14 @@ import tweepy
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 
-consumer_key = "mcw0fusJiO6oCWIgXNOqfZm4f"
-consumer_secret = "vlCJO6YKa5Bpnh1bMNc8JbRkUYs31cCEKAPvLVD6iTTauM0qVj"
-access_token = '1258010808656842758-I5kRigF1FkpMXx7GqeLH8HXEcVsSoP'
-access_token_secret = '905GceOgjqGIzZSsx6QcmPo8I3h3SSiUCp8NgS8gnlinM'
-
+consumer_key = 
+consumer_secret = 
+access_token =
+access_token_secret = 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
-#api = tweepy.API(auth,wait_on_rate_limit=True)
-'''
+api = tweepy.API(auth,wait_on_rate_limit=True)
+
 user = api.me()
 print(user.name)
 print(user.location)
@@ -19,7 +18,7 @@ for follower in tweepy.Cursor(api.followers).items():
     follower.follow()
 
 print("Followed everyone that is following " + user.name)
-'''
+
 master = Tk()
 master.title("TWitter Bot")
 master.configure(bg='skyblue')
