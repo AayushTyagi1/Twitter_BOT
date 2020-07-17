@@ -1,11 +1,14 @@
 import tweepy
 from tkinter import *
 from tkinter.filedialog import askopenfilename
+import time
+import datetime
 
-consumer_key = 
-consumer_secret = 
-access_token =
-access_token_secret = 
+consumer_key =
+consumer_secret =
+access_token = 
+access_token_secret =
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
@@ -74,7 +77,24 @@ def getE6():
 def getE7():
     return str((E7.get(ACTIVE)))
 
-
+def publictweet():
+    if datetime.date.today().weekday() == 0:
+        tweettopublish = 'Hi everyone, today is Monday.   #Monday '
+    if datetime.date.today().weekday() == 1:
+        tweettopublish = 'Enjoy your Tuesday.  #Tuesday'
+    if datetime.date.today().weekday() == 2:
+        tweettopublish = 'Third week of the Week. #Wednesday'
+    if datetime.date.today().weekday() == 3:
+        tweettopublish = 'Thursday. I cannot wait for the Weekend'
+    if datetime.date.today().weekday() == 4:
+        tweettopublish = 'Friday...Finally'
+    if datetime.date.today().weekday() == 5:
+        tweettopublish = 'Great it is Saturday #weekend #Saturday'
+    if datetime.date.today().weekday() == 6:
+        tweettopublish = 'Sunday morning...#Weekend #enjoy '
+    api.update_status(tweettopublish)
+    print(tweettopublish)
+    
 def mainFunction():
     getE1()
     search = getE1()
@@ -122,7 +142,6 @@ def mainFunction():
                 #Retweet
                 tweet.retweet()
                 print('Retweeted the tweet')
-                sleep(5)
 
             except tweepy.TweepError as e:
                 print(e.reason)
@@ -157,7 +176,9 @@ def mainFunction():
                 break       
             
 submit = Button(master, text ="Submit",fg='white',bg='dark blue', command = mainFunction)
+Update = Button(master, text ="Update Daily Tweet",fg='black',bg='cyan', command = publictweet)
 
+Update.pack()
 label1.pack()
 E1.pack()
 label2.pack()
