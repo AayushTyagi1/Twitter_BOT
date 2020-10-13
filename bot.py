@@ -176,7 +176,7 @@ def mainFunction():
                 break       
             
 submit = Button(master, text ="Submit",fg='white',bg='dark blue', command = mainFunction)
-Update = Button(master, text ="Update Daily Tweet",fg='black',bg='cyan', command = publictweet)
+Update = Button(master, text ="Update Daily Tweet",fg='white',bg='sky blue', command = publictweet)
 
 Update.pack()
 label1.pack()
